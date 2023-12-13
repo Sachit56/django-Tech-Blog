@@ -1,10 +1,15 @@
 # example/views.py
-from datetime import datetime
+# from datetime import datetime
 
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
+from .forms import TaskForm
 
 def index(request):
-    # return render(request,'example/index.html')
-    return HttpResponse('Hello')
+    form=TaskForm()
+    
+    return render(request,'example/index.html',{
+        'form':form
+    })
+    
     
