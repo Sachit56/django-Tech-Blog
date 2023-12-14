@@ -1,6 +1,11 @@
 <form action="" method="POST">
-    {{form.title}}
+    {% csrf_token %}
+
+     
+    <h2>{{delete.title}}</h2>
+
+    <input type="submit" value="Delete">
 
 
-    <h2>Delete</h2>
+    
 </form>

@@ -47,18 +47,19 @@ def UpdateView(request, pk):
     })
 
 def DeleteView(request,pk):
-    delete=get_object_or_404(TaskModel,pk=pk)
+    item=get_object_or_404(TaskModel,pk=pk)
 
-    form=TaskForm(instance=delete)
+    
 
     if request.POST:
-        form=TaskForm(request.POST,instance=delete)
+        
 
-        form.save()
+        item.delete()
         return redirect('/')
     
     return render(request,'example/delete.html',{
-        'form':form
+        # 'form':form,
+        'delete':item
     })
 
 
