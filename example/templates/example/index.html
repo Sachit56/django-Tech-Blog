@@ -8,9 +8,20 @@
 <body>
     <form action="" method="post">
         {% csrf_token %}
-        {{form.as_p}}
+        {{form.title}}
         <input type="submit">
         
     </form>
+    {% for task in tasks %}
+    <ul>
+
+        <li>{{task}}</li>
+        <a href="{% url 'example:update' task.id %}">Update Task</a>
+        <a href="{% url 'example:delete' task.id %}">Delete Task</a>
+
+    </ul>
+
+     
+    {% endfor %} 
 </body>
 </html>
